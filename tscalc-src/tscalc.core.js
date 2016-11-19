@@ -56,12 +56,12 @@ $(document).ready(function(){
         var cost = '';
         var sup_class = '';
 
-        var regexp_replace = /([a-zа-я*]+)/gi;
+        var regexp_replace = /([a-zа-яё*]+)/gi;
 
         // формируем строку заклинания
         var formatted_spell = source_spell.replace(regexp_replace, function(spellword, inb, offset, sourcestr){
             with(getcost) {  // invoke function getcost() to this closure
-                cost = getcost(spellword); // will use dictionary for specific world, default is kaladon_spellwords
+                cost = getcost( spellword.toLowerCase() ); // will use dictionary for specific world, default is kaladon_spellwords
 
                 if (cost == '?') {
                     sup_class = 'error';
