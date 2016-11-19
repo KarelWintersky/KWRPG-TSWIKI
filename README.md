@@ -1,2 +1,2 @@
 # KWRPG-TSWIKI
-KwRPG::TrueSpeech Wiki &amp; Calc
+KwRPG::TrueSpeech Wiki&Calc

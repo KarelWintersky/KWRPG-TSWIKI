@@ -1,0 +1,156 @@
+.output {
+    border: 1px;
+    border-style: solid;
+    width: 90%;
+}
+.bg_out {
+    background-color: #f0ffff;
+    display:none;
+}
+.bg_info {
+    background-color: #faebd7;
+}
+.hint {
+    color: red;
+    font-style: italic;
+    font-size: large;
+}
+.word {
+    color: blue;
+}
+sup {
+    color: #6495ed;
+}
+sup.error {
+    font-weight: bold;
+    color: red;
+}
+ul {
+    margin: 0;
+    padding: 0;
+}
+ul.buttons li {
+    list-style-type: none;
+}
+p.world:hover {
+    background-color: #efefef;
+}
+p.world  {
+    margin: 0;
+    padding: 0;
+    clear: both;
+}
+p.world label {
+    display: block;
+    padding: 0.5em 0.5em 0.5em 2em;
+}
+p.world input {
+    float: left;
+    position: relative;
+    top: 0.5em;
+    left: 0.5em;
+}
+.radio {
+    width:18px; height:18px;
+}
+/* Tabs Styles */
+* {margin: 0; padding: 0;}
+body {margin: 20px; font: 13px/1.5 "Trebuchet MS", Tahoma, Arial; width: 940px}
+a {color: #0094D6;}
+p {padding: 7px 0;}
+h1 {font-size: 21px; font-weight: normal; margin: 0 0 20px;}
+h2 {font-size: 16px; font-weight: normal; margin: 0 0 25px;}
+
+.section {
+    width: 100%;
+    background: #EFEFEF;
+    margin: 0 0 30px;
+}
+ul.tabs {
+    height: 28px;
+    line-height: 25px;
+    list-style: none;
+    border-bottom: 1px solid #DDD;
+    background: #FFF;
+}
+.tabs li {
+    float: left;
+    display: inline;
+    margin: 0 1px -1px 0;
+    padding: 0 13px 1px;
+    color: #777;
+    cursor: pointer;
+    background: #F9F9F9;
+    border: 1px solid #E4E4E4;
+    border-bottom: 1px solid #F9F9F9;
+    position: relative;
+}
+.tabs li:hover,
+.vertical .tabs li:hover {
+    color: #F70;
+    padding: 0 13px;
+    background: #FFFFDF;
+    border: 1px solid #FFCA95;
+}
+.tabs li.current {
+    color: #444;
+    background: #EFEFEF;
+    padding: 0 13px 2px;
+    border: 1px solid #D4D4D4;
+    border-bottom: 1px solid #EFEFEF;
+}
+.box {
+    display: none;
+    border: 1px solid #D4D4D4;
+    border-width: 0 1px 1px;
+    background: #EFEFEF;
+    padding: 0 12px;
+}
+.box.visible {
+    display: block;
+}
+
+.section.vertical {
+    width: 100%;
+    border-left: 160px solid #FFF;
+}
+.vertical .tabs {
+    width: 160px;
+    float: left;
+    display: inline;
+    margin: 0 0 0 -160px;
+}
+.vertical .tabs li {
+    padding: 0 13px;
+    margin: 0 0 1px;
+    border: 1px solid #E4E4E4;
+    border-right: 1px solid #F9F9F9;
+    width: 132px;
+    height: 25px;
+}
+.vertical .tabs li:hover {
+    width: 131px;
+}
+.vertical .tabs li.current {
+    width: 133px;
+    color: #444;
+    background: #EFEFEF;
+    border: 1px solid #D4D4D4;
+    border-right: 1px solid #EFEFEF;
+    margin-right: -1px;
+}
+.vertical .box {
+    border-width: 1px;
+}
+
+.text {
+    float: right;
+    width: 300px;
+}
+
+.box {
+    display: none; /* по умолчанию прячем все блоки */
+}
+.box.visible {
+    display: block; /* по умолчанию показываем нужный блок */
+}

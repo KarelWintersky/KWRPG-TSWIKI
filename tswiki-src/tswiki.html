@@ -1,0 +1,103 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title></title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" href="tswiki.css">
+    <script type="text/javascript" src="jquery.min.js"></script>
+    <script type="text/javascript" src="tswiki.kaladon.js"></script>
+    <script type="text/javascript" src="tswiki.conf.js"></script>
+    <script type="text/javascript" src="tswiki.engine.js"></script>
+    <script type="text/javascript" src="tswiki.calc.js"></script>
+</head>
+<body>
+<div class="section vertical">
+    <ul class="tabs">
+        <li class="current">КАЛЬКУЛЯТОР</li>
+        <li>СЛОВА</li>
+        <li>ОБРАЗУЮЩИЕ</li>
+        <li>НАПРАВЛЯЮЩИЕ</li>
+        <li>ОБЪЕКТЫ</li>
+        <li>СТИХИИ</li>
+        <li>?</li>
+    </ul>
+    <div class="box visible" id="tab-calc">
+
+        <table border="1" width="100%">
+            <tr>
+                <td colspan="2">
+                    <textarea rows="10" cols="60" id="spell_input" title="Введите заклинание...">Введите заклинание...</textarea>
+                </td>
+                <td>
+                    По умолчанию элементы считаются словами. Уточнить тип элемента можно:
+                <ol>
+                    <li>Добавлением типа в конце через слэш: <i>мысль/слово</i>, <i>мысль/напр</i></li>
+                    <li>Префиксом в начале:
+                        <ul>
+                            <li><b>"!"</b> - слово,</li>
+                            <li><b>"+"</b> - образующая,</li>
+                            <li><b>"?"</b> - направляющая,</li>
+                            <li><b>"*"</b> - стихия</li>
+                            <li><b>"%"</b> - цель</li>
+                        </ul>
+                </ol>
+                    Кроме того, по-английски стихии можно указывать без префикса.
+                </td>
+            </tr>
+            <tr>
+                <td width="100px">
+                    <input type="button" id="spell_verify" value="Вычислить">
+                </td>
+                <td align="right">
+                    <div class="hint"></div>
+                </td>
+                <td>
+                    <p class="world"><input type="radio" class="radio" name="the_world" value="kaladon" id="the_world_k" checked><label for="the_world_k"> Каладон </label></p>
+                    <p class="world"><input type="radio" class="radio" name="the_world" value="conf" id="the_world_c"><label for="the_world_c"> Конфедерация </label></p>
+                </td>
+            </tr>
+        </table>
+        <hr>
+        <fieldset class="output bg_info">
+            <legend>
+                <!-- <input type="button" value='Информация:' class="_toggle" title="spell_info"> -->
+                <b>Информация:  </b>
+            </legend>
+            <div id="spell_info">
+                Длина: <input type="text" value="?" class="info" id="spell_len" readonly size="7">
+                Энергоемкость: <input type="text" value="?" class="info"  id="spell_power" readonly size="7">
+                Средняя мощность слова: <input type="text" class="info" value="?" id="spell_avg" readonly size="7">
+                Неопределенных слов: <input type="text" value="?" class="info" id="spell_unk" readonly size="7">
+            </div><br>
+            <fieldset class="bg_out">
+                <legend>
+                    <!-- <input type="button" value='Подробно:' class="_toggle" title="spell_output"> -->
+                    Подробности...
+                </legend>
+                <div id="spell_output"></div>
+            </fieldset>
+        </fieldset>
+
+    </div>
+    <div class="box" id="tab-words">
+    </div>
+
+    <div class="box" id="tab-forms">
+    </div>
+
+    <div class="box" id="tab-dirs">
+    </div>
+
+    <div class="box" id="tab-obj">
+    </div>
+
+    <div class="box" id="tab-powers">
+    </div>
+
+    <div class="box" id="tab-control">
+    </div>
+
+</div><!-- .section -->
+
+</body>
+</html>

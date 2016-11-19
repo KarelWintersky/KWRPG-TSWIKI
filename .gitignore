@@ -1,0 +1,14 @@
+# Junk that could exist anywhere:
+*.log
+*.zip
+
+# Ignore this folders:
+
+.idea
+.git
+node_modules
+
+# Ignore this files:
+
+.deploy/account.json
+.deploy/node_modules
