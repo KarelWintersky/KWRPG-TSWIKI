@@ -5,10 +5,10 @@
     <title>Калькулятор мощности заклинананий</title>
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <meta name="version" content="1.4 19.11.2016" />
-    <script type="text/javascript" src="jquery.211.min.js"></script>
-    <script type="text/javascript" src="tscalc.core.js"></script>
-    <script type="text/javascript" src="tscalc.words.js"></script>
-    <link rel="stylesheet" href="tscalc.css">
+    <script type="text/javascript" id="jquery.211.min.js"></script>
+    <script type="text/javascript" id="tscalc.core.js">%tscalc-core%</script>
+    <script type="text/javascript" id="tscalc.words.js">%tscalc-words%</script>
+    <style type="text/css" id="tscalc.css">%tscalc-css%</style>
 </head>
 <body>
 <table border="1">
@@ -18,16 +18,16 @@
         </td>
         <td>
             По умолчанию элементы считаются словами. Уточнить тип элемента можно:            <ol>
-                <li>Добавлением типа в конце через слэш: <i>мысль/слово</i>, <i>мысль/напр</i></li>
-                <li>Префиксом в начале:
-                    <ul>
-                        <li><b>"!"</b> - слово,</li>
-                        <li><b>"+"</b> - образующая,</li>
-                        <li><b>"?"</b> - направляющая,</li>
-                        <li><b>"*"</b> - стихия</li>
-                        <li><b>"%"</b> - цель</li>
-                    </ul>
-            </ol>
+            <li>Добавлением типа в конце через слэш: <i>мысль/слово</i>, <i>мысль/напр</i></li>
+            <li>Префиксом в начале:
+                <ul>
+                    <li><b>"!"</b> - слово,</li>
+                    <li><b>"+"</b> - образующая,</li>
+                    <li><b>"?"</b> - направляющая,</li>
+                    <li><b>"*"</b> - стихия</li>
+                    <li><b>"%"</b> - цель</li>
+                </ul>
+        </ol>
             Кроме того, по-английски стихии можно указывать без префикса.
         </td>
     </tr>
@@ -39,8 +39,8 @@
             <div class="hint"></div>
         </td>
         <td>
-        <p class="world"><input type="radio" name="the_world" value="kaladon" id="the_world_k" checked><label for="the_world_k"> Каладон </label></p>
-        <p class="world"><input type="radio" name="the_world" value="conf" id="the_world_c" disabled><label for="the_world_c"> Конфедерация </label></p>
+            <p class="world"><input type="radio" name="the_world" value="kaladon" id="the_world_k" checked><label for="the_world_k"> Каладон </label></p>
+            <p class="world"><input type="radio" name="the_world" value="conf" id="the_world_c" disabled><label for="the_world_c"> Конфедерация </label></p>
         </td>
     </tr>
 </table>

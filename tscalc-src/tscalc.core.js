@@ -19,23 +19,22 @@ var getcost = function(str, dictionary) {
 }
 
 $(document).ready(function(){
+    var $spell_input = $("#spell_input");
 
     $("#spell_input")
         .focus(function(){
-            var $this = $(this);
-            if ($this.val() == $this.attr('title'))
+            if ($spell_input.val() == $spell_input.attr('title'))
             {
-                $this.val('');
-                $("#spell_verify").attr('disabled','');
+                $spell_input.val('');
+                $("#spell_verify").prop('disabled', false);
                 $(".hint").text('');
             }
         })
         .blur(function(){
-            var $this = $(this);
             $(".hint").text('');
-            if ($this.val() == '') {
-                $this.val($this.attr('title'));
-                $("#spell_verify").attr('disabled','disabled');
+            if ($spell_input.val() == '') {
+                $spell_input.val($this.attr('title'));
+                $("#spell_verify").prop('disabled', true);
                 $(".hint").text('Необходимо ввести заклинание');
             }
         });
