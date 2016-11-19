@@ -24,7 +24,7 @@
                         <li><b>"!"</b> - слово,</li>
                         <li><b>"+"</b> - образующая,</li>
                         <li><b>"?"</b> - направляющая,</li>
-                        <li><b>"@"</b> - стихия</li>
+                        <li><b>"*"</b> - стихия</li>
                         <li><b>"%"</b> - цель</li>
                     </ul>
             </ol>
@@ -45,19 +45,19 @@
     </tr>
 </table>
 <hr>
-<fieldset class="output bg_info">
+<fieldset class="output spell_info">
     <legend>
         <b>Информация:  </b>
     </legend>
     <div id="spell_info">
-        Длина: <input type="text" value="?" class="info" id="spell_len" readonly size="7">
-        Энергоемкость: <input type="text" value="?" class="info"  id="spell_power" readonly size="7">
-        Средняя мощность слова: <input type="text" class="info" value="?" id="spell_avg" readonly size="7">
-        Неопределенных слов: <input type="text" value="?" class="info" id="spell_unk" readonly size="7">
+        Длина: <input type="text" value="?" class="info" id="spell_length" readonly size="7">
+        Энергоемкость: <input type="text" value="?" class="info"  id="spell_total_power" readonly size="7">
+        Средняя мощность слова: <input type="text" class="info" value="?" id="spell_average_power" readonly size="7">
+        Неопределенных слов: <input type="text" value="?" class="info" id="spell_unknown_words_count" readonly size="7">
     </div><br>
-    <fieldset class="bg_out">
+    <fieldset class="spell_legend">
         <legend>Подробности...</legend>
-        <div id="spell_output"></div>
+        <pre id="spell_formatted"></pre>
     </fieldset>
 </fieldset>
 

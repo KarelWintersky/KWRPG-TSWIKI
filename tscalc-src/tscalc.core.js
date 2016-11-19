@@ -1,42 +1,19 @@
 /**
- * Created by IntelliJ IDEA.
  * User: Rain
+ * Version: 1.4
  * Date: 15.06.2010
  * Update: 26.11.2015
  * Update: 19.11.2016
  */
 
-/*
-function kaladon_getcost(str)
-{
-    var r = '?';
-    for (var wordtype in kaladon_spellwords) {
-        if (str in kaladon_spellwords[wordtype]) r = kaladon_spellwords[wordtype][str];
-    }
+var getcost = function(str, dictionary) {
+    if (typeof dictionary == "undefined")
+        dictionary = kaladon_spellwords;
 
-    // перебор влоб наверное был бы быстрее....
-    // if (str in ts_words) r = ts_words[str];
-    // if (str in ts_forms) r = ts_forms[str];
-    // if (str in ts_dirs) r = ts_dirs[str];
-    // if (str in ts_targets) r = ts_targets[str];
-    // if (str in ts_powers) r = ts_powers[str];
-    return r;
-}
-*/
-
-/*function conf_getcost(str)
-{
     var r = '?';
-    for (var wordtype in conf_spellwords) {
-        if (str in conf_spellwords[wordtype]) r = conf_spellwords[wordtype][str];
-    }
-    return r;
-}*/
-
-var getcost = function(str) {
-    var r = '?';
-    for (var wordtype in kaladon_spellwords) {
-        if (str in kaladon_spellwords[wordtype]) r = kaladon_spellwords[wordtype][str];
+    for (var wordtype in dictionary) {
+        if (str in dictionary[wordtype])
+            r = dictionary[wordtype][str];
     }
     return r;
 }
@@ -67,80 +44,47 @@ $(document).ready(function(){
 
     // вычисление мощности заклинания и вывод статистики
     $("#spell_verify").click(function(){
-
-        // 1. получить значение формы и преобразовать в последовательность слов
-        var a_spell = $("#spell_input").val();
-        
-        // 3. обернуть каждое слово конструкцией <span>..<sup></sup></span> для вывода
-        // (опц: для hover-подсветки цены), обработку скобок опустим,
-        // равно как и обработку "носитель:(сила пламя), вывод сделаем строго потоком слов
-        // 4. вывести заклинание с подсчитанными стоимостями слов
-
-        // преобразовать в массив слов
-
-        var words = 0;
-        var nowords = 0;
-        var spellpower = 0;
-        var out = '';
-
-        // http://www.pcre.ru/eval/
-        // http://javascript.ru/basic/regular-expression#zamena-replace
-
-        // var re = /[\s|\(|\)|\:|\*]/; // [\s|\)\(\:\!\+\?\@\$]
-        // var re_split = /[^а-яa-z]/;
-        // spell_words = a_spell.split(re_split);
-
         // получить мир
         // the_world = $("input[@name='the_world']:checked").val();
+        // var dictionary = (the_world == 'kaladon') ? kaladon_spellwords : conf_spellwords;
 
-        var re_replace = /([a-zа-я]+)/gi;
+        // получить значение формы и преобразовать в последовательность слов
+        var source_spell = $("#spell_input").val();
+        
+        var known_words_count     = 0;
+        var unknown_words_count   = 0;
+        var spellpower      = 0;
         var cost = '';
+        var sup_class = '';
 
-        var sstr = a_spell.replace(re_replace, function(substring, inb, offset, sourcestr){
-            with(getcost) {
-                var cost = getcost(substring);
-                console.log(substring, cost);
-            }
+        var regexp_replace = /([a-zа-я*]+)/gi;
 
-        });
+        // формируем строку заклинания
+        var formatted_spell = source_spell.replace(regexp_replace, function(spellword, inb, offset, sourcestr){
+            with(getcost) {  // invoke function getcost() to this closure
+                cost = getcost(spellword); // will use dictionary for specific world, default is kaladon_spellwords
 
-        /*var a_spell_final = '';
-        (function(regexp_expression, source_string, dest_string, func){
-            var sstr = source_string.replace(regexp_expression, function(substring, getcost){
-                var cost = getcost(substring);
-            } );
-        })(re_replace, a_spell, a_spell_final, getcost);*/
-
-
-        // 2. посчитать суммарную стоимость, длину и среднюю стоимость
-        /*$.each(spell_words, function(idx,value){
-            if (value!='')
-            {
-                // the_world = 'kaladon';
-                cost = kaladon_getcost(value);
-
-                // cost = getcost(value);
-                if (cost=='?') {
-                    sup_element = '<sup class="error">';
-                    nowords++;
+                if (cost == '?') {
+                    sup_class = 'error';
+                    unknown_words_count++;
                 } else {
-                    sup_element = '<sup>'; spellpower += cost;
-                    words++;
+                    sup_class = 'info';
+                    known_words_count++;
+                    spellpower += cost;
                 }
-                sstr = '<span class="word">' + value+ sup_element + cost + '</sup></span> ';
-                out += sstr;
+
+                return '<span class="word">' + spellword + '<sup class="' + sup_class + '">' + cost + '</sup></span>';
             }
         });
-*/
-        // 5. вывести удельные значения
-        $(".info").val('?');
-        if (!(words==0)) $("#spell_avg").val((spellpower/words).toFixed(1));
-        $("#spell_output").html(out);
-        $(".bg_out").show();
-        $("#spell_len").val(words);
-        $("#spell_power").val(spellpower);
 
-        $("#spell_unk").val(nowords);
+        // 5. вывести удельные значения
+        $("#spell_length").val( known_words_count );
+        $("#spell_unknown_words_count").val( unknown_words_count )
+        if ( known_words_count != 0 )
+            $("#spell_average_power").val((spellpower/known_words_count).toFixed(1));
+        $("#spell_total_power").val( spellpower );
+        $("#spell_formatted").html(formatted_spell);
+        $(".spell_legend").show();
     });
 
 });
