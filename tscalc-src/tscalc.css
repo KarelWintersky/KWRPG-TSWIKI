@@ -1,0 +1,55 @@
+.output {
+    border: 1px;
+    border-style: solid;
+    width: 90%;
+}
+.bg_out {
+    background-color: #f0ffff;
+    display:none;
+}
+.bg_info {
+    background-color: #faebd7;
+}
+.hint {
+    color: red;
+    font-size: small;
+    font-style: italic;
+}
+.word {
+    color: blue;
+}
+sup {
+    color: #6495ed;
+}
+sup.error {
+    font-weight: bold;
+    color: red;
+}
+ul {
+    margin: 0;
+    padding: 0;
+}
+ul.buttons li {
+    list-style-type: none;
+}
+p.world:hover {
+    background-color: #efefef;
+}
+p.world  {
+    margin: 0;
+    padding: 0;
+    clear: both;
+}
+p.world label {
+    display: block;
+    padding: 0.5em 0.5em 0.5em 2em;
+}
+p.world input {
+    float: left;
+    position: relative;
+    top: 0.5em;
+    left: 0.5em;
+}
+.radio {
+    width:18px; height:18px;
+}
