@@ -33,7 +33,7 @@ $(document).ready(function(){
         .blur(function(){
             $(".hint").text('');
             if ($spell_input.val() == '') {
-                $spell_input.val($spell_input.attr('title'));
+                $spell_input.val($this.attr('title'));
                 $("#spell_verify").prop('disabled', true);
                 $(".hint").text('Необходимо ввести заклинание');
             }

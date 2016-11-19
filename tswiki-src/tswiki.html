@@ -1,16 +1,16 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-    <title></title>
+    <title>Калькулятор мощности заклинананий</title>
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="version" content="1.4 19.11.2016" />
+    <script type="text/javascript" src="jquery.noajax.js"></script>
+    <script type="text/javascript" src="tscalc.core.js"></script>
+    <script type="text/javascript" src="tscalc.words.js"></script>
     <link rel="stylesheet" href="tswiki.css">
-    <script type="text/javascript" src="jquery.min.js"></script>
-    <script type="text/javascript" src="tswiki.kaladon.js"></script>
-    <script type="text/javascript" src="tswiki.conf.js"></script>
-    <script type="text/javascript" src="tswiki.engine.js"></script>
-    <script type="text/javascript" src="tswiki.calc.js"></script>
 </head>
 <body>
+
 <div class="section vertical">
     <ul class="tabs">
         <li class="current">КАЛЬКУЛЯТОР</li>
@@ -19,18 +19,17 @@
         <li>НАПРАВЛЯЮЩИЕ</li>
         <li>ОБЪЕКТЫ</li>
         <li>СТИХИИ</li>
-        <li>?</li>
     </ul>
     <div class="box visible" id="tab-calc">
+        <!-- TS Calc Section -->
 
-        <table border="1" width="100%">
+        <table border="1">
             <tr>
                 <td colspan="2">
                     <textarea rows="10" cols="60" id="spell_input" title="Введите заклинание...">Введите заклинание...</textarea>
                 </td>
                 <td>
-                    По умолчанию элементы считаются словами. Уточнить тип элемента можно:
-                <ol>
+                    По умолчанию элементы считаются словами. Уточнить тип элемента можно:            <ol>
                     <li>Добавлением типа в конце через слэш: <i>мысль/слово</i>, <i>мысль/напр</i></li>
                     <li>Префиксом в начале:
                         <ul>
@@ -46,38 +45,36 @@
             </tr>
             <tr>
                 <td width="100px">
-                    <input type="button" id="spell_verify" value="Вычислить">
+                    <input type="button" id="spell_verify" value="Вычислить" disabled>
                 </td>
                 <td align="right">
                     <div class="hint"></div>
                 </td>
                 <td>
-                    <p class="world"><input type="radio" class="radio" name="the_world" value="kaladon" id="the_world_k" checked><label for="the_world_k"> Каладон </label></p>
-                    <p class="world"><input type="radio" class="radio" name="the_world" value="conf" id="the_world_c"><label for="the_world_c"> Конфедерация </label></p>
+                    <p class="world"><input type="radio" name="the_world" value="kaladon" id="the_world_k" checked><label for="the_world_k"> Каладон </label></p>
+                    <p class="world"><input type="radio" name="the_world" value="conf" id="the_world_c" disabled><label for="the_world_c"> Конфедерация </label></p>
                 </td>
             </tr>
         </table>
         <hr>
-        <fieldset class="output bg_info">
+        <fieldset class="output spell_info">
             <legend>
-                <!-- <input type="button" value='Информация:' class="_toggle" title="spell_info"> -->
                 <b>Информация:  </b>
             </legend>
             <div id="spell_info">
-                Длина: <input type="text" value="?" class="info" id="spell_len" readonly size="7">
-                Энергоемкость: <input type="text" value="?" class="info"  id="spell_power" readonly size="7">
-                Средняя мощность слова: <input type="text" class="info" value="?" id="spell_avg" readonly size="7">
-                Неопределенных слов: <input type="text" value="?" class="info" id="spell_unk" readonly size="7">
+                Длина: <input type="text" value="?" class="info" id="spell_length" readonly size="7">
+                Энергоемкость: <input type="text" value="?" class="info"  id="spell_total_power" readonly size="7">
+                Средняя мощность слова: <input type="text" class="info" value="?" id="spell_average_power" readonly size="7">
+                Неопределенных слов: <input type="text" value="?" class="info" id="spell_unknown_words_count" readonly size="7">
             </div><br>
-            <fieldset class="bg_out">
-                <legend>
-                    <!-- <input type="button" value='Подробно:' class="_toggle" title="spell_output"> -->
-                    Подробности...
-                </legend>
-                <div id="spell_output"></div>
+            <fieldset class="spell_legend">
+                <legend>Подробности...</legend>
+                <pre id="spell_formatted"></pre>
             </fieldset>
         </fieldset>
 
+
+        <!-- TS Calc Section END -->
     </div>
     <div class="box" id="tab-words">
     </div>
@@ -97,7 +94,10 @@
     <div class="box" id="tab-control">
     </div>
 
-</div><!-- .section -->
+</div>
+
+
+
 
 </body>
 </html>
