@@ -1,0 +1,90 @@
+/* TS Calc Styles
+ Version 1.5 2016-11-19
+ */
+.output {
+    border: 1px;
+    border-style: solid;
+    width: 90%;
+}
+
+.spell_legend {
+    background-color: #f0ffff;
+}
+
+.spell_info {
+    background-color: #fdf0b8;
+}
+
+.hint {
+    color: red;
+    font-size: small;
+    font-style: italic;
+}
+
+.spell-hint {
+    color: #0078e7;
+    font-size: small;
+    display: none;
+}
+
+.word {
+    color: blue;
+}
+
+sup.info {
+    color: #6495ed;
+}
+
+sup.error {
+    font-weight: bold;
+    color: red;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+}
+
+ul.buttons li {
+    list-style-type: none;
+}
+
+p.world:hover {
+    background-color: #efefef;
+}
+
+p.world {
+    margin: 0;
+    padding: 0;
+    clear: both;
+}
+
+p.world label {
+    display: block;
+    padding: 0.5em 0.5em 0.5em 2em;
+}
+
+p.world input {
+    float: left;
+    position: relative;
+    top: 0.5em;
+    left: 0.5em;
+}
+
+.radio {
+    width: 18px;
+    height: 18px;
+}
+
+textarea {
+    resize: vertical;
+    width: 100%;
+    -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+    -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+    box-sizing: border-box;         /* Opera/IE 8+ */
+}
+
+.spellbox-header {
+    font-style: italic;
+    font-size: x-large;
+}
