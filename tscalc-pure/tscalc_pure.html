@@ -15,17 +15,25 @@
 <body>
 <table class="pure-table pure-table-horizontal" width="80%">
     <tr>
-        <td style="vertical-align: top" width="40%">
+        <td style="vertical-align: top" width="50%">
             <span class="spellbox-header">Spell</span>
             <textarea class="pure-input-1-2" id="spell_input" placeholder="Enter your spell..." rows="200" cols="60" style="max-height: 460px; min-height: 220px"></textarea>
+            <!--
+            <label for="use_as_power_prefix">
+                <input id="use_as_power_prefix" type="checkbox"> Use `*` as POWER prefix
+            </label>
+            -->
         </td>
-        <td style="vertical-align: top">
+        <td style="vertical-align: top" width="50%">
             <span class="spellbox-header">Info</span>
             <fieldset class="spell_legend">
-                <!-- <legend>Расклад по словам...</legend> -->
-                <div style="height: 460px; max-height: 460px; overflow-y: scroll;">
+                <!-- <div id="spell_formatted_wrapper" style="height: 460px; max-height: 460px; overflow: scroll;">
                     <pre id="spell_formatted"></pre>
                 </div>
+                -->
+                <pre id="spell_formatted" style="height: 460px; max-height: 460px; overflow: scroll;">
+                </pre>
+
             </fieldset>
         </td>
     </tr>

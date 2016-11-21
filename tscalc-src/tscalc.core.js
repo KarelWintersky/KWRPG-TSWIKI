@@ -38,8 +38,15 @@ $(document).ready(function(){
                 $(".hint").text('Необходимо ввести заклинание');
             }
         });
+    $("#spell_reset").on('click', function(){
+        $("#spell_input").val('').focus();
+        $("#spell_formatted").html('');
+        $(".input-spell-info").val('?');
+    });
 
-    $('.toggle').click(function() { $('#'+$(this).attr('title') ).toggle('fast')} );
+    $("#actor-spell-hint").on('click', function(){
+        $("#spell-hint").toggle();
+    });
 
     // вычисление мощности заклинания и вывод статистики
     $("#spell_verify").click(function(){

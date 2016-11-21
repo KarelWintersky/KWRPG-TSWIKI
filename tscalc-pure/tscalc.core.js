@@ -19,6 +19,10 @@ var getcost = function(str, dictionary) {
 }
 
 $(document).ready(function(){
+    var current_width = $("#spell_formatted").css('width');
+    $("#spell_formatted").css("min-width", current_width).css("width", current_width);
+
+
     var $spell_input = $("#spell_input");
 
     $("#spell_input")
@@ -38,7 +42,7 @@ $(document).ready(function(){
         });
 
     $("#spell_reset").on('click', function(){
-        $("#spell_input").val('');
+        $("#spell_input").val('').focus();
         $("#spell_formatted").html('');
         $(".input-spell-info").val('?');
     });
@@ -62,7 +66,7 @@ $(document).ready(function(){
         var cost = '';
         var sup_class = '';
 
-        var regexp_replace = /([a-zа-яё*]+)/gi;
+        var regexp_replace = /([a-zа-яё]+)/gi; // есть 2 варианта регулярки - с добавленным "*" (префиксом стихии) и без
 
         // формируем строку заклинания
         var formatted_spell = source_spell.replace(regexp_replace, function(spellword, inb, offset, sourcestr){
